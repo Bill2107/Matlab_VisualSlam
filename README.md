@@ -13,3 +13,12 @@ The algorithm is split between 5 main stages,
 3. **Point Cloud Generation**: by mapping the features from the feature tracking onto their respective depth maps we can determine a 3d position for each feature, giving a point cloud at T and T-1.
 4. **Camera Transform:** We can determine what rotation and translation of the camera is required such that the difference between the points in Point cloud 1 and Point cloud 2 are minimised (recalling that each point in the 2 clouds are matched and so determining the difference between 2 points is simple)
 5. **Robot Update:** Finally we can update the position of the robot using this camera transform
+
+## Processing
+## Feature Tracking
+The basic idea behind feature tracking is that we generate a uniform distribution of points and see how they move in time.
+![alt text](https://github.com/Bill2107/Matlab_VisualSlam/blob/main/Planning/FeatureTracking.png?raw=true)
+Things to keep in mind:
+1. For bigger jumps in time youll be able to measure rotations and movements easier (which can reduce overall noise), but this can make tracking points hard especially as the matching radius R increases
+2. There are a number of detectors other than ORB available such as FAST, SIFT, SURF etc. luckily matlab makes switching between these detectors pretty simple.
+  

@@ -29,4 +29,7 @@ The basic idea behind feature tracking is that we generate a uniform distributio
 Things to keep in mind:
 1. For bigger jumps in time youll be able to measure rotations and movements easier (which can reduce overall noise), but this can make tracking points hard especially as the matching radius R increases
 2. There are a number of detectors other than ORB available such as FAST, SIFT, SURF etc. luckily matlab makes switching between these detectors pretty simple.
-  
+ 
+## Other Notes
+### Functions vs Scripts
+Its basically my opinion that scripts > functions on account of not needing to pass the entirety of a workspace through to a function as parameters. This becomes especially annoying when you are trying to use gpu arrays since your effectively doubling the amount of (very limited) memory being used up, as such I use scripts in this project because they arent annoying.

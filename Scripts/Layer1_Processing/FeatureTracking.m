@@ -23,3 +23,4 @@ for iI = 1:2
     Points{i} = cornerPoints(P);
     clear H W P x y
 end
+clear j k i iI R regionOfInterest

@@ -6,7 +6,5 @@ for k = 1:kBig
     R = ceil(length(Images{1,1}(1,:))/10);
     run('Layer1_Processing\FeatureTracking.m');
     run('Layer1_Processing\DepthMapGeneration.m');
-        imshow(InterpolatedDM{1}, [0, 10*8]);
-        colormap jet
-        colorbar
+    run('Layer2_PointCloudGeneration\PointCloudGeneration.m');
 end

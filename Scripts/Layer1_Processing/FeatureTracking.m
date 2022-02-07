@@ -20,7 +20,14 @@ for iI = 1:2
             P = [P; orbP.Location];
         end
     end
-    Points{i} = cornerPoints(P);
+    Points{iI} = cornerPoints(P);
     clear H W P x y
 end
-clear j k i iI R regionOfInterest
+
+[F{1}, P{1}] = extractFeatures(Images{1,1}, Points{1});
+[F{2}, P{2}] = extractFeatures(Images{1,2}, Points{2});
+
+indexPairs = matchFeaturesInRadius(F{1},F{2},P{2}.Location, P{1}.Location, R);
+MP{1} = P{1}(indexPairs(:,1),:);
+MP{2} = P{2}(indexPairs(:,2),:);
+clear i iI R regionOfInterest S orbP n m F P Points j indexPairs

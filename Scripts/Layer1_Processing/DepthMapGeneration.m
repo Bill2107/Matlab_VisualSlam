@@ -14,3 +14,5 @@ for j = 1:2
     InterpolatedDM{j} = griddata(x,y,double(DM),xi,yi);
   %  InterpolatedDM{j} = imfill(disparityMap{j},8);
 end
+
+clear j disparityMap S xi x yi y DM

@@ -1,6 +1,6 @@
 # Matlab_VisualSlam
 
-##Introduction
+## Introduction
 
 The purpose of this project is to implement a simple Mapping and Localisation algorithm for the KITTI Dataset using primarily matlab functions, in order to gain an understanding of the necassary steps to develop a functional SLAM algorithm.
 

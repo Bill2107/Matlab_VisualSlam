@@ -5,5 +5,5 @@
 else
     Robot{k, 1} = Robot{k-1,1} + X(2);
     a = Robot{k-1,1};
-    Robot{k,2} = Robot{k-1,2} + [sin(a), 0, cos(a)].*0.001;
+    Robot{k,2} = Robot{k-1,2} + [sin(a), 0, cos(a)].*[0,0,0.01];
 end

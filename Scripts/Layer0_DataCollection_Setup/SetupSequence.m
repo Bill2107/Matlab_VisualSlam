@@ -16,7 +16,7 @@ sequenceNumber = 0;
 
 %% 1. Load Path
 PATH = '../../../../data_odometry_gray/dataset/sequences';
-v = VideoWriter(sprintf("../output/STEREO_SLAM_%d.mp4", l), 'MPEG-4');
+v = VideoWriter(sprintf("../../Results/STEREO_SLAM_%d.mp4", sequenceNumber), 'MPEG-4');
 open(v)
 
 %% 2. Load Camera Parameters
@@ -42,7 +42,7 @@ cameraParams{1} = cameraParameters('IntrinsicMatrix',K{1});
 cameraParams{2} = cameraParameters('IntrinsicMatrix',K{2}); 
 
 %% 3. Initialise Robot Frame
-Robot{1,1}(:,:) = eye(3);
+Robot{1,1}(:,:) = 0;
 Robot{1,2}(1,:) = [0, 0, 0];
 
 %% 4. Clear out unnecassary variables

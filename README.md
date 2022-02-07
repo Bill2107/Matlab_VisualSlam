@@ -20,9 +20,9 @@ Depth maps or more accuratley Disparity maps, give a number for each point it fi
 Largely speaking this can be achieved through Feature Tracking, however the matlab function `disparitySGM`, achieves this quite well.
 To get a depth for all points (not at just some points), this disparity map can be smoothed or 'Interpolated' such that there is an approximate depth for all pixels in a scene.
 ![alt text](https://github.com/Bill2107/Matlab_VisualSlam/blob/main/Results/Interpolation/Interpolation_1.png?raw=true)
-note:
-1. The interpolation takes a huge amount of time to actually process in practice, its highly likely theres a better way of doing this, but I cant think of one right now. The main idea is that all the features need a reliable way to assign distances from the camera, and this works.
-2. It's also worth noting that features very close to the camera (see car on the right) can be very unreliable, as of yet I have not figured out a way to avoid this issue other than ignoring points very close to the edge of the image, or using data sets that dont have this problem.
+Full interpolation can take a significant about of time (~3.5s for each frame) as such I've implemented an algorithm than Im calling Fast-Interpolation, this is basically just pooling the data set before interpolating and then smoothing at the end, this obviously heavily relys on the image being everywhere continous, which obviously its not. However this does make things alot faster.
+notes:
+1. It's also worth noting that features very close to the camera (see car on the right) can be very unreliable, as of yet I have not figured out a way to avoid this issue other than ignoring points very close to the edge of the image, or using data sets that dont have this problem.
 ### Feature Tracking
 The basic idea behind feature tracking is that we generate a uniform distribution of points and see how they move in time.
 ![alt text](https://github.com/Bill2107/Matlab_VisualSlam/blob/main/Planning/FeatureTracking.png?raw=true)

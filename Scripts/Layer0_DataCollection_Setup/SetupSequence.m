@@ -11,6 +11,7 @@ clear
 clc
 clf
 
+k=1;
 sequenceNumber = 0;
 
 %% 1. Load Path

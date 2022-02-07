@@ -1,9 +1,9 @@
 figure(1);
 hold on;
-for i = 1:k
-    plot(Robot{i,2}(1), Robot{i,2}(3), '.' ,'Color','red');
+if k > 1
+    plot(Robot{k,2}(1), Robot{k,2}(3), '.' ,'Color','Blue');
+    plot(Robot{k-1,2}(1), Robot{k-1,2}(3), '.' ,'Color','Red');
 end
-plot(Robot{k,2}(1), Robot{k,2}(3), '.' ,'Color','Blue');
 axis equal;
 title('odometry');
 set(gcf,'position', [100 200 1280 720 ]);

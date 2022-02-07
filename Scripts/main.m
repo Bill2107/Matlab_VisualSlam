@@ -9,6 +9,8 @@ for k = 2:kBig
     run('Layer2_PointCloudGeneration\PointCloudGeneration.m');
     run('Layer3_CameraTransfrom\DetermineCameraTransfrom.m');
     run('Layer4_UpdateRobot\UpdateRobot.m');
+    tic
     run('Layer4_UpdateRobot\plotRobot.m');
+    toc
 end
 run("Layer5_ClearProgram\EndProgram.m");

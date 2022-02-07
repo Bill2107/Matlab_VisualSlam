@@ -15,7 +15,12 @@ The algorithm is split between 5 main stages,
 5. **Robot Update:** Finally we can update the position of the robot using this camera transform
 
 ## Processing
-## Feature Tracking
+
+### Depth Map
+Depth maps or more accuratley Disparity maps, give a number for each point it finds in an image, for how far that point moves left or right between the left and right cameras.
+Largely speaking this can be achieved through Feature Tracking, however the matlab function `disparitySGM`, achieves this quite well.
+To get a depth for all points (not at just some points), this disparity map can be smoothed or 'Interpolated' such that there is an approximate depth for all pixels in a scene.
+### Feature Tracking
 The basic idea behind feature tracking is that we generate a uniform distribution of points and see how they move in time.
 ![alt text](https://github.com/Bill2107/Matlab_VisualSlam/blob/main/Planning/FeatureTracking.png?raw=true)
 Things to keep in mind:

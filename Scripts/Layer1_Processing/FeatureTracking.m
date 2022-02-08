@@ -1,4 +1,4 @@
-for iI = 1:2
+for iI = 1:1
     [H, W] = size(Images{1,iI});
     
     x = 1:(W-1)/m:W;
@@ -20,14 +20,13 @@ for iI = 1:2
             P = [P; orbP.Location];
         end
     end
-    Points{iI} = cornerPoints(P);
+    points = cornerPoints(P);
     clear H W P x y
 end
 
-[F{1}, P{1}] = extractFeatures(Images{1,1}, Points{1});
-[F{2}, P{2}] = extractFeatures(Images{1,2}, Points{2});
-
-indexPairs = matchFeaturesInRadius(F{1},F{2},P{2}.Location, P{1}.Location, R);
-MP{1} = P{1}(indexPairs(:,1),:);
-MP{2} = P{2}(indexPairs(:,2),:);
-clear i iI R regionOfInterest S orbP n m F P Points j indexPairs
+tracker = vision.PointTracker('MaxBidirectionalError',1);
+initialize(tracker,points.Location,Images{1,1});
+[points2,validity] = tracker(Images{1,2});
+points2 = cornerPoints(points2(validity,:));
+MP{1} = points(validity,:);
+MP{2} = points2;

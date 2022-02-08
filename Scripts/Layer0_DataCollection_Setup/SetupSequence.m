@@ -14,7 +14,7 @@ clf
 k=1;
 sequenceNumber = 0;
 ScalingValue = 1;
-LengthScaling = 100*(85/124);
+LengthScaling = 100*(85/124)*(89/58);
 PointsPerBucket = 500;
 MinPointsPerCloud = 10;
 

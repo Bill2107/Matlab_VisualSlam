@@ -15,7 +15,8 @@ k=1;
 sequenceNumber = 0;
 ScalingValue = 1;
 LengthScaling = 100*(85/124);
-PointsPerBucket = 1000;
+PointsPerBucket = 500;
+MinPointsPerCloud = 10;
 
 %% 1. Load Path
 PATH = '../../../../data_odometry_gray/dataset/sequences';

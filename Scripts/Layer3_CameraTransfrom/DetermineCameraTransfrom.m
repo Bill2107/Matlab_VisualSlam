@@ -1,9 +1,14 @@
 dZ = 0.01;
 dW = 0;
 x0 = [dZ, dW];
+if(length(PointCloud{1}) < MinPointsPerCloud)
+    disp(sprintf('Error: Too few Points %d < %d', length(PointCloud{1}), MinPointsPerCloud));
+end
 fun = @(x)Minimisation(x,PointCloud{1}, PointCloud{2});
 X = fminsearch(fun,x0);
-
+if(X(1)>0.03)
+    X(1) = 0.02
+end
 
 function diff = Minimisation(x0, PC1, PC2)
     PCp = applyMove2Cloud(x0(1), x0(2),PC1);

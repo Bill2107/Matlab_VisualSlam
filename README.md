@@ -40,6 +40,7 @@ The Camera transform section is simple, at this point we have 2 ordered lists of
 Below are some of the results for the Stereo Slam algorithm, clearly its pretty ok at determining forwards and backwards movements of the car, but it struggles with getting the angles of turns exact, I feel like it would be really quite difficult to overcome this by just detecting more points or something along those lines. Really the only way I can think of to overcome this is writing a loop closure script for this project, or fusing the angular estimate with data from an IMU or a magnetometer.
 
 The Algorithm results are in red and the ground truth is in green.
+![alt text](https://github.com/Bill2107/Matlab_VisualSlam/blob/main/Results/Pictures/Seq5_Results.png)
 
 ## Other Notes
 ### Functions vs Scripts

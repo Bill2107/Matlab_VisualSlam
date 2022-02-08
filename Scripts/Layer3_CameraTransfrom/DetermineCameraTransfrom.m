@@ -1,4 +1,4 @@
-dZ = 5;
+dZ = 0.01;
 dW = 0;
 x0 = [dZ, dW];
 fun = @(x)Minimisation(x,PointCloud{1}, PointCloud{2});

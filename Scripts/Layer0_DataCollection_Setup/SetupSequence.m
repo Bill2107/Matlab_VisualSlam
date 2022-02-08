@@ -14,7 +14,8 @@ clf
 k=1;
 sequenceNumber = 0;
 ScalingValue = 1;
-LengthScaling = 100;
+LengthScaling = 100*(85/124);
+PointsPerBucket = 1000;
 
 %% 1. Load Path
 PATH = '../../../../data_odometry_gray/dataset/sequences';
@@ -46,6 +47,7 @@ cameraParams{2} = cameraParameters('IntrinsicMatrix',K{2});
 %% 3. Initialise Robot Frame
 Robot{1,1}(:,:) = 0;
 Robot{1,2}(1,:) = [0, 0, 0];
+GroundTruths = importdata(sprintf('%s/00.txt','../../../../data_odometry_poses/dataset/poses'));
 
 %% 4. Clear out unnecassary variables
 clear P0 P1 P2 P3 ProjMats P sequenceNumber PATH K

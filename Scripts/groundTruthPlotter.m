@@ -1,5 +1,3 @@
-Path = '../../../data_odometry_poses/dataset/poses';
-L =importdata(sprintf('%s/00.txt',Path));
 hold on
 for k = 1:2000
 x = L(k,4);

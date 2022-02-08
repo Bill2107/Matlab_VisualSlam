@@ -11,10 +11,12 @@ for k = 2:kBig/ScalingValue
         run('Layer2_PointCloudGeneration\PointCloudGeneration.m');
         run('Layer3_CameraTransfrom\DetermineCameraTransfrom.m');
     else
-        X = [0,0];
+        X = [0.1,0];
     end
     run('Layer4_UpdateRobot\UpdateRobot.m');
     run('Layer4_UpdateRobot\plotRobot.m');
+    run('Layer4_UpdateRobot\plotGroundTruth.m');
+    run('Layer4_UpdateRobot\WriteToVideo.m');
     disp(k)
 end
 run("Layer5_ClearProgram\EndProgram.m");

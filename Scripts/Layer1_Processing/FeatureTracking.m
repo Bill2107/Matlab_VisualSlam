@@ -10,7 +10,7 @@ for iI = 1:2
             regionOfInterest = [x(i), y(j), (W-1)/m, (H-1)/n];
             orbP = detectORBFeatures(Images{1,iI}, ... %'MinQuality', 0.00, ...
                 ...%'MinContrast', 0.1, ...
-                'ROI',regionOfInterest).selectStrongest(500);
+                'ROI',regionOfInterest).selectStrongest(PointsPerBucket);
                 
             if orbP.Count < 500
                 %disp(orbP.Count)

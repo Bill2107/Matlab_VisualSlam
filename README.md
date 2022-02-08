@@ -44,3 +44,19 @@ The Algorithm results are in red and the ground truth is in green.
 ## Other Notes
 ### Functions vs Scripts
 Its basically my opinion that scripts > functions on account of not needing to pass the entirety of a workspace through to a function as parameters. This becomes especially annoying when you are trying to use gpu arrays since your effectively doubling the amount of (very limited) memory being used up, as such I use scripts in this project because they arent annoying.
+### Acknowledgements 
+I used the [KITTI Odometry Dataset](http://www.cvlibs.net/datasets/kitti/eval_odometry.php) to generate my results,
+
+@INPROCEEDINGS{Geiger2012CVPR,
+
+  author = {Andreas Geiger and Philip Lenz and Raquel Urtasun},
+  
+  title = {Are we ready for Autonomous Driving? The KITTI Vision Benchmark Suite},
+  
+  booktitle = {Conference on Computer Vision and Pattern Recognition (CVPR)},
+  
+  year = {2012}
+  
+}
+
+ 

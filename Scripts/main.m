@@ -1,6 +1,6 @@
 run('Layer0_DataCollection_Setup\SetupSequence.m');
-for k = 2:kBig
-    tic
+for k = 2:kBig/ScalingValue
+    frame = (k-1)*ScalingValue;
     run('Layer0_DataCollection_Setup\SetupFrame.m');
     n = 5;
     m = 10;
@@ -16,6 +16,5 @@ for k = 2:kBig
     run('Layer4_UpdateRobot\UpdateRobot.m');
     run('Layer4_UpdateRobot\plotRobot.m');
     disp(k)
-    toc
 end
 run("Layer5_ClearProgram\EndProgram.m");

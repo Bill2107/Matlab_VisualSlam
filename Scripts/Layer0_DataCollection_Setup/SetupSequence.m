@@ -13,6 +13,8 @@ clf
 
 k=1;
 sequenceNumber = 0;
+ScalingValue = 1;
+LengthScaling = 100;
 
 %% 1. Load Path
 PATH = '../../../../data_odometry_gray/dataset/sequences';

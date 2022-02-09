@@ -16,9 +16,12 @@ for k = 2:kBig/ScalingValue
         disp('hello!');
     end
     run('Layer4_UpdateRobot\UpdateRobot.m');
-    run('Layer4_UpdateRobot\plotRobot.m');
-    run('Layer4_UpdateRobot\plotGroundTruth.m');
-    run('Layer4_UpdateRobot\WriteToVideo.m');
+    run('Layer5_Mapping\UpdateMap.m');
+    pcshow(ptCloud);
+    pause(0.01);
+ %   run('Layer4_UpdateRobot\plotRobot.m');
+ %   run('Layer4_UpdateRobot\plotGroundTruth.m');
+ %   run('Layer4_UpdateRobot\WriteToVideo.m');
     disp(k)
 end
-run("Layer5_ClearProgram\EndProgram.m");
+run("Layer6_ClearProgram\EndProgram.m");

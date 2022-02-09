@@ -8,7 +8,7 @@ for iI = 1:1
     for i = 1:(length(x)-1)
         for j = 1:(length(y)-1)
             regionOfInterest = [x(i), y(j), (W-1)/m, (H-1)/n];
-            orbP = detectFASTFeatures(Images{1,iI}, ... %'MinQuality', 0.00, ...
+            orbP = detectORBFeatures(Images{1,iI}, ... %'MinQuality', 0.00, ...
                 ...%'MinContrast', 0.1, ...
                 'ROI',regionOfInterest).selectStrongest(PointsPerBucket);
                 
@@ -30,13 +30,9 @@ initialize(tracker,points.Location,Images{1,1});
 points2 = cornerPoints(points2(validity,:));
 MP{1} = points(validity,:);
 MP{2} = points2;
-
-%figure(1)
-%plot(MP{1}.Location(:,1), MP{1}.Location(:,2), 'o', 'Color', 'red');
-%hold on
-%for i = 1:length(MP{1}.Location(:,1))
-%    plot([MP{1}.Location(i,1), MP{2}.Location(i,1)], [MP{1}.Location(i,2), MP{2}.Location(i,2)], '-', 'Color', 'green');
-%end
-%xlim([0 1226])
-%ylim([0 370])
-%hold off
+figure(1)
+plot(MP{1}.Location(:,1), MP{1}.Location(:,2), 'o', 'Color', 'red');
+for i = 1:length(MP{})
+plot([MP{1}.Location(:,1), MP{2}.Location(:,1)], [MP{1}.Location(:,2), MP{2}.Location(:,2)], '-', 'Color', 'green');
+xlim([0 1226])
+ylim([0 370])

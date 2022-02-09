@@ -30,4 +30,15 @@ end
 indexPairs = matchFeaturesInRadius(F{1},F{2},P{2}.Location, P{1}.Location, R);
 MP{1} = P{1}(indexPairs(:,1),:);
 MP{2} = P{2}(indexPairs(:,2),:);
+
+%figure(1)
+%plot(MP{1}.Location(:,1), MP{1}.Location(:,2), 'o', 'Color', 'red');
+%hold on
+%for i = 1:length(MP{1}.Location(:,1))
+%    plot([MP{1}.Location(i,1), MP{2}.Location(i,1)], [MP{1}.Location(i,2), MP{2}.Location(i,2)], '-', 'Color', 'green');
+%end
+%xlim([0 1226])
+%ylim([0 370])
+%hold off
+
 clear i iI R regionOfInterest S orbP n m F P Points j indexPairs

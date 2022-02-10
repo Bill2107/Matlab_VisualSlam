@@ -17,8 +17,8 @@ for k = 2:kBig/ScalingValue
     end
     run('Layer4_UpdateRobot\UpdateRobot.m');
     run('Layer5_Mapping\UpdateMap.m');
-    pcshow(ptCloud);
-    pause(0.01);
+%    pcshow(ptCloud);
+%    pause(0.01);
  %   run('Layer4_UpdateRobot\plotRobot.m');
  %   run('Layer4_UpdateRobot\plotGroundTruth.m');
  %   run('Layer4_UpdateRobot\WriteToVideo.m');

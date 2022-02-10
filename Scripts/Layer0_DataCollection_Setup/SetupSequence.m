@@ -13,6 +13,7 @@ clc
 clf
 
 k=1;
+ksmall = 100;
 sequenceNumber = 5;
 ScalingValue = 1;
 LengthScaling = 100*(85/124)*(89/58);

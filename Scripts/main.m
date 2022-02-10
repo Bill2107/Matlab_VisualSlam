@@ -1,7 +1,7 @@
 run('Layer0_DataCollection_Setup\SetupSequence.m');
 
 for k = 2:kBig/ScalingValue
-    frame = (k-1)*ScalingValue;
+    frame = (k-1)*ScalingValue + ksmall;
     run('Layer0_DataCollection_Setup\SetupFrame.m');
     n = 5;
     m = 10;
@@ -13,7 +13,7 @@ for k = 2:kBig/ScalingValue
         run('Layer3_CameraTransfrom\DetermineCameraTransfrom.m');
     else
         X = [0.01,0];
-        disp('hello!');
+        disp('Not Enough Points!');
     end
     run('Layer4_UpdateRobot\UpdateRobot.m');
     run('Layer5_Mapping\UpdateMap.m');

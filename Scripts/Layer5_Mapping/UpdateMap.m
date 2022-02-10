@@ -19,7 +19,7 @@ end
 
 function outPtC = applymove2PC(ptC, X, w)
         angle1 = atan2(ptC(1),ptC(3));
-        angle2 = angle1 - w;
+        angle2 = angle1 + w;
         R = norm([ptC(1),0,ptC(3)],2);
         ptC(1) = R*cos(angle2);
         ptC(3) = R*sin(angle2);

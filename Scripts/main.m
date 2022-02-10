@@ -17,6 +17,7 @@ for k = 2:kBig/ScalingValue
     end
     run('Layer4_UpdateRobot\UpdateRobot.m');
     run('Layer5_Mapping\UpdateMap.m');
+    disp(ptCloud.Count);
 %    pcshow(ptCloud);
 %    pause(0.01);
  %   run('Layer4_UpdateRobot\plotRobot.m');

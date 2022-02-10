@@ -4,7 +4,8 @@
 % 1. Load the Path for the camera Data
 % 2. Load in the Camera Parameters (intrinsic matrix)
 % 3. Initialise the robot frame
-% 4. Clear Unecassary Variables
+% 4. Setup the map
+% 5. Clear Unecassary Variables
 
 warning('off', 'MATLAB:scatteredInterpolant:DupPtsAvValuesWarnId');
 clear
@@ -50,5 +51,7 @@ Robot{1,1}(:,:) = 0;
 Robot{1,2}(1,:) = [0, 0, 0];
 GroundTruths = importdata(sprintf('%s/05.txt','../../../../data_odometry_poses/dataset/poses'));
 
-%% 4. Clear out unnecassary variables
+%% 4. Setup the Map
+%[MAP_X, MAP_Y, MAP_Z] = zeros(-100:0.3:100,-100:0.3:100,-100:0.3:100);
+%% 5. Clear out unnecassary variables
 clear P0 P1 P2 P3 ProjMats P sequenceNumber PATH K

@@ -2,16 +2,15 @@
 if k > 2
     %instead of using the already computed point cloud, I want to 
     % reproject the image using the past interpolated depth map.
-   % ptCloud = pointCloud([ptCloud.Location; ...
-    %    applymove2PC(PointCloud{1,2}, Robot{k,2}, Robot{k,1})]);
     ptCloud = pointCloud([ptCloud.Location; ...
         applymove2PC( ...
-        reprojectImage(Images{1,1}, InterpolatedDM{1}) ...
+        downsample(reprojectImage(Images{1,1}, InterpolatedDM{1}),10) ...
         , Robot{k,2}, Robot{k,1})]);
+     
 else %create the Map
-    ptCloud = pointCloud(reprojectImage(Images{1,1}, InterpolatedDM{1}));
+    ptCloud = pointCloud(downsample(reprojectImage(Images{1,1}, InterpolatedDM{1}),10));
 end
-%ptCloud = pcdenoise(ptCloud);
+ptCloud = pcdenoise(ptCloud);
 
 function outPtC = applymove2PC(ptC, X, w)
         angle1 = atan2(ptC(1),ptC(3));

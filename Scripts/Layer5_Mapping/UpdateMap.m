@@ -2,15 +2,20 @@
 if k > 2
     %instead of using the already computed point cloud, I want to 
     % reproject the image using the past interpolated depth map.
-    ptCloud = pointCloud([ptCloud.Location; ...
-        applymove2PC( ...
-        downsample(reprojectImage(Images{1,1}, InterpolatedDM{1}),10) ...
-        , Robot{k,2}, Robot{k,1})]);
-     
+    %ptCloud = pointCloud([ptCloud.Location; ...
+    %    applymove2PC( ...
+    %    downsample(reprojectImage(Images{1,1}, InterpolatedDM{1}),10) ...
+    %    , Robot{k,2}, Robot{k,1})]);
+    points = applymove2PC( ...
+            downsample(reprojectImage(Images{1,1}, InterpolatedDM{1}),10) ...
+            , Robot{k,2}, Robot{k,1});
+    updateOccupancy(Omap, points,1);
 else %create the Map
-    ptCloud = pointCloud(downsample(reprojectImage(Images{1,1}, InterpolatedDM{1}),10));
+    %ptCloud = pointCloud(downsample(reprojectImage(Images{1,1}, InterpolatedDM{1}),10));
+    points = downsample(reprojectImage(Images{1,1}, InterpolatedDM{1}),10);
+    updateOccupancy(Omap, points,1);
 end
-ptCloud = pcdenoise(ptCloud);
+%ptCloud = pcdenoise(ptCloud);
 
 function outPtC = applymove2PC(ptC, X, w)
         angle1 = atan2(ptC(1),ptC(3));
@@ -31,6 +36,8 @@ function outPtC = reprojectImage(Image, Depth)
     %remove bad points
     A((isnan(X) + isnan(Y) + isnan(Z))>0, :) = 0;
     A(((abs(Z)>20) + (abs(X) > 20) + (abs(Y) > 20)) > 0, :) = 0;
+    %remove all points above car
+    A(Y<-2.5, :) = 0;
     %disp(sum(A(:) == Inf));
     outPtC = A;
 end

@@ -53,5 +53,6 @@ GroundTruths = importdata(sprintf('%s/05.txt','../../../../data_odometry_poses/d
 
 %% 4. Setup the Map
 %[MAP_X, MAP_Y, MAP_Z] = zeros(-100:0.3:100,-100:0.3:100,-100:0.3:100);
+Omap = occupancyMap3D(4);
 %% 5. Clear out unnecassary variables
 clear P0 P1 P2 P3 ProjMats P sequenceNumber PATH K
